@@ -4,9 +4,9 @@ function MovieTickets () {
   this.currentId = 0;
 }
 
-MovieTickets.prototype.addId = function(customer) {
-  customer.id = this.assignId();
-  this.customers.push(customer)
+MovieTickets.prototype.addTicket = function(ticket) {
+  ticket.id = this.assignId();
+  this.tickets.push(ticket)
 }
 
 MovieTickets.prototype.assignId = function () {
@@ -15,12 +15,16 @@ MovieTickets.prototype.assignId = function () {
 }
 
 // business logic for Customer
-function Tickets (customerName, customerAge, movie, showTime) {
+function Ticket(customerName, customerAge, movie, showTime) {
   this.customerName = customerName;
   this.customerAge = customerAge;
   this.movie = movie;
   this. showTime = showTime;
 }
+
+let movieTickets = new MovieTickets()
+let customer1 = new Ticket ("Tom", "13", "Tenant", "12:00");
+movieTickets.addTicket(customer1); 
 
 $(document).ready(function) {
 
