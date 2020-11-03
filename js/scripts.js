@@ -27,21 +27,28 @@ function Ticket(customerName, customerAge, movie, showTime) {
 
 
 //Business logic for ticket pricing
-function ticketPricing(ticket) {
+function ticketPricing() {
   let price = 10;
-  if (movieTickets.tickets[0].movie == "oceans-11") {
+  if (movieTickets.tickets[movieTickets.currentId-1].movie == "oceans-11") {
     price -= 10;
-  } else if (movieTickets.tickets[0].customerAge >= 65) {
+  } else if (movieTickets.tickets[movieTickets.currentId-1].customerAge >= 65) {
     price -= 5;
-  } else if (movieTickets.tickets[0].showTime == "daytime") {
+  } else if (movieTickets.tickets[movieTickets.currentId-1].showTime == "daytime") {
     price -= 4;
   };
+  
   return price;
 };
 
 
 //UI Logic
 let movieTickets = new MovieTickets();
+
+function showTicket(tix, price) {
+  let ticketList = $("p#display")
+  ticketList.append(tix.tickets[tix.currentId-1].customerName + " " + tix.tickets[tix.currentId-1].movie + " " + price + "$" + "<br>")
+}
+
 
 $(document).ready(function() {
   $("form#movie-ticket").submit(function(event) {
@@ -55,25 +62,17 @@ $(document).ready(function() {
     let newTicket = new Ticket (inputName, inputAge, inputMovie, inputTime);
     movieTickets.addTicket(newTicket);
     let finalPrice = ticketPricing(newTicket);
-    console.log(finalPrice);
+    //console.log(finalPrice);
+    showTicket(movieTickets, finalPrice);
     
     
   });
 });
 
 /* 
-acccount for pricing, 
-for first or second run theater showing, 
-const ticketPrice = 10
-if (age >= 65) {
-  ticketPrice -= 2
-}
+1. 
+2. 
+3. display for multlple tickets
+4. displays total price? 
 
-if (movie = "Oceans 11" || movie = ) {
-  ticketPrice -= 5;
-
-if (movieTime < 4) {
-  ticketPrice -=2;
-}
-}
 */
