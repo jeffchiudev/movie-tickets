@@ -19,21 +19,47 @@ function Ticket(customerName, customerAge, movie, showTime) {
   this.customerName = customerName;
   this.customerAge = customerAge;
   this.movie = movie;
-  this. showTime = showTime;
+  this.showTime = showTime;
 }
 
-let movieTickets = new MovieTickets()
-let customer1 = new Ticket ("Tom", "13", "Tenant", "12:00");
-movieTickets.addTicket(customer1); 
+
+//movieTickets.addTicket(customer1); 
 
 
 //Business logic for ticket pricing
-function 
+function ticketPricing(ticket) {
+  let price = 10;
+  if (movieTickets.tickets[0].movie == "oceans-11") {
+    price -= 10;
+  } else if (movieTickets.tickets[0].customerAge >= 65) {
+    price -= 5;
+  } else if (movieTickets.tickets[0].showTime == "daytime") {
+    price -= 4;
+  };
+  return price;
+};
+
 
 //UI Logic
-$(document).ready(function) {
+let movieTickets = new MovieTickets();
 
-}
+$(document).ready(function() {
+  $("form#movie-ticket").submit(function(event) {
+    event.preventDefault();
+    let inputName = $("input#name").val();
+    let inputAge = $("input#age").val();
+    let inputMovie = $("input:radio[name=movie]:checked").val();
+    let inputTime = $("#show-time").val();
+    $("input#name").val("");
+    $("input#age").val("");
+    let newTicket = new Ticket (inputName, inputAge, inputMovie, inputTime);
+    movieTickets.addTicket(newTicket);
+    let finalPrice = ticketPricing(newTicket);
+    console.log(finalPrice);
+    
+    
+  });
+});
 
 /* 
 acccount for pricing, 
