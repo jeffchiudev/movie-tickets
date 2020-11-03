@@ -26,6 +26,28 @@ let movieTickets = new MovieTickets()
 let customer1 = new Ticket ("Tom", "13", "Tenant", "12:00");
 movieTickets.addTicket(customer1); 
 
+
+//Business logic for ticket pricing
+function 
+
+//UI Logic
 $(document).ready(function) {
 
 }
+
+/* 
+acccount for pricing, 
+for first or second run theater showing, 
+const ticketPrice = 10
+if (age >= 65) {
+  ticketPrice -= 2
+}
+
+if (movie = "Oceans 11" || movie = ) {
+  ticketPrice -= 5;
+
+if (movieTime < 4) {
+  ticketPrice -=2;
+}
+}
+*/

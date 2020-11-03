@@ -11,7 +11,50 @@
 </head>
 <body>
   <div class="container">
-    
+    <form id= "movieTicket">
+      <div class="form-group"> 
+        <label for = "name">Enter your full name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for = "age">Enter your age</label>
+        <input type="number" class="form-control" id="age" required>
+      </div>
+      <div class="form-group">
+        <div class="radio">
+          <label>
+              <input type="radio" name="movie" value="hereditary">
+              Hereditary
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+              <input type="radio" name="movie" value="oceans-11">
+              Oceans 11
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+              <input type="radio" name="movie" value="goofy-movie">
+              The Goofy Movie
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+              <input type="radio" name="movie" value="babe">
+              Babe: Pig in the City
+          </label>
+        </div>
+        <select class="form-control" id="show-time">
+          <option value="daytime">1:00PM</option>
+          <option value="daytime">3:00PM</option>
+          <option value="nighttime">5:00PM</option>
+          <option value="nighttime">7:00PM</option>
+        </select>
+      </div>  
+    </form>
+
+
   </div>
 </body>
 </html>
